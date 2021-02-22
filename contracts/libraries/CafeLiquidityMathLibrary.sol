@@ -1,12 +1,11 @@
 pragma solidity >=0.5.0;
 
-import '@uniswap/lib/contracts/libraries/Babylonian.sol';
-import '@uniswap/lib/contracts/libraries/FullMath.sol';
-
 import '../interfaces/ICafePair.sol';
 import '../interfaces/ICafeFactory.sol';
-import './CafeLibrary.sol';
+import './Babylonian.sol';
+import './FullMath.sol';
 import './SafeMath.sol';
+import './CafeLibrary.sol';
 
 // library containing some math for dealing with the liquidity shares of a pair, e.g. computing their exact value
 // in terms of the underlying tokens

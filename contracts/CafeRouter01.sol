@@ -1,6 +1,6 @@
 pragma solidity =0.6.6;
 
-import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
+import './libraries/TransferHelper.sol';
 
 import './libraries/CafeLibrary.sol';
 import './interfaces/ICafeRouter01.sol';

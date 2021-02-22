@@ -1,9 +1,8 @@
 pragma solidity =0.6.6;
 
-import '@uniswap/lib/contracts/libraries/FixedPoint.sol';
-
 import '../interfaces/ICafeFactory.sol';
 import '../interfaces/ICafePair.sol';
+import '../libraries/FixedPoint.sol';
 import '../libraries/CafeOracleLibrary.sol';
 import '../libraries/CafeLibrary.sol';
 

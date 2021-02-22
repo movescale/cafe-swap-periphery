@@ -1,7 +1,7 @@
 pragma solidity >=0.5.0;
 
 import '../interfaces/ICafePair.sol';
-import "./SafeMath.sol";
+import './SafeMath.sol';
 
 library CafeLibrary {
     using SafeMath for uint;
@@ -20,7 +20,7 @@ library CafeLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'96e8ac4277198ff8b6f785478aa9a39f403cb768dd02cbee326c3e7da348845f' // init code hash
+                hex'f0225efe4929427cbf6e07590fe654077bf05fcbf514fdef359a3e1f23514f5f' // init code hash
             ))));
     }
 
