@@ -20,7 +20,7 @@ library CafeLibrary {
                 hex'ff',
                 factory,
                 keccak256(abi.encodePacked(token0, token1)),
-                hex'f0225efe4929427cbf6e07590fe654077bf05fcbf514fdef359a3e1f23514f5f' // init code hash
+                hex'bb78d1c600a61edbee0f7293650b8f16e535355d60822d0b7a6df23ac297c201' // init code hash
             ))));
     }
 
