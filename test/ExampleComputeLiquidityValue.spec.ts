@@ -91,7 +91,7 @@ describe('ExampleComputeLiquidityValue', () => {
         expandTo18Decimals(7)
       )
       expect(token0Amount).to.eq('1400000000000000000')
-      expect(token1Amount).to.eq('35052578868302453680')
+      expect(token1Amount).to.eq('35035035035035035035')
     })
 
     describe('fee on', () => {
@@ -122,8 +122,8 @@ describe('ExampleComputeLiquidityValue', () => {
           token1.address,
           expandTo18Decimals(7)
         )
-        expect(token0Amount).to.eq('1399824934325735058')
-        expect(token1Amount).to.eq('35048195651620807684')
+        expect(token0Amount).to.eq('1399883304152074212')
+        expect(token1Amount).to.eq('35032114718520375684')
       })
     })
   })
@@ -136,7 +136,7 @@ describe('ExampleComputeLiquidityValue', () => {
         1,
         400
       )
-      expect(reserveA).to.eq('5007516917298542016')
+      expect(reserveA).to.eq('5005010655410289619')
       expect(reserveB).to.eq('1999997739838173075192')
     })
     it('1/200', async () => {
@@ -146,7 +146,7 @@ describe('ExampleComputeLiquidityValue', () => {
         1,
         200
       )
-      expect(reserveA).to.eq('7081698338256310291')
+      expect(reserveA).to.eq('7079626073007224941')
       expect(reserveB).to.eq('1413330640570018326894')
     })
     it('1/100 (same price)', async () => {
@@ -167,7 +167,7 @@ describe('ExampleComputeLiquidityValue', () => {
         50
       )
       expect(reserveA).to.eq('14133306405700183269')
-      expect(reserveB).to.eq('708169833825631029041')
+      expect(reserveB).to.eq('707962607300722494068')
     })
     it('1/25', async () => {
       const [reserveA, reserveB] = await computeLiquidityValue.getReservesAfterArbitrage(
@@ -177,7 +177,7 @@ describe('ExampleComputeLiquidityValue', () => {
         25
       )
       expect(reserveA).to.eq('19999977398381730752')
-      expect(reserveB).to.eq('500751691729854201595')
+      expect(reserveB).to.eq('500501065541028961802')
     })
     it('25/1', async () => {
       const [reserveA, reserveB] = await computeLiquidityValue.getReservesAfterArbitrage(
@@ -187,7 +187,7 @@ describe('ExampleComputeLiquidityValue', () => {
         1
       )
       expect(reserveA).to.eq('500721601459041764285')
-      expect(reserveB).to.eq('20030067669194168064')
+      expect(reserveB).to.eq('20010399073982089180')
     })
     it('works with large numbers for the price', async () => {
       const [reserveA, reserveB] = await computeLiquidityValue.getReservesAfterArbitrage(
@@ -198,7 +198,7 @@ describe('ExampleComputeLiquidityValue', () => {
       )
       // diff of 30 bips
       expect(reserveA).to.eq('100120248075158403008')
-      expect(reserveB).to.eq('100150338345970840319')
+      expect(reserveB).to.eq('100060028433502455443')
     })
   })
 
@@ -212,7 +212,7 @@ describe('ExampleComputeLiquidityValue', () => {
           105,
           expandTo18Decimals(5)
         )
-        expect(token0Amount).to.eq('488683612488266114') // slightly less than 5% of 10, or 0.5
+        expect(token0Amount).to.eq('488672519193193846') // slightly less than 5% of 10, or 0.5
         expect(token1Amount).to.eq('51161327957205755422') // slightly more than 5% of 100, or 5
       })
 
@@ -225,7 +225,7 @@ describe('ExampleComputeLiquidityValue', () => {
           expandTo18Decimals(5)
         )
         expect(token0Amount).to.eq('512255881944227034') // slightly more than 5% of 10, or 0.5
-        expect(token1Amount).to.eq('48807237571060645526') // slightly less than 5% of 100, or 5
+        expect(token1Amount).to.eq('48806069786780888968') // slightly less than 5% of 100, or 5
       })
 
       it('produces correct value at the current price', async () => {
@@ -249,7 +249,7 @@ describe('ExampleComputeLiquidityValue', () => {
             100,
             expandTo18Decimals(5)
           )
-        ).to.eq('12728')
+        ).to.eq('12705')
       })
 
       it('gas higher price', async () => {
@@ -261,7 +261,7 @@ describe('ExampleComputeLiquidityValue', () => {
             105,
             expandTo18Decimals(5)
           )
-        ).to.eq('13501')
+        ).to.eq('13478')
       })
 
       it('gas lower price', async () => {
@@ -273,7 +273,7 @@ describe('ExampleComputeLiquidityValue', () => {
             95,
             expandTo18Decimals(5)
           )
-        ).to.eq('13546')
+        ).to.eq('13523')
       })
 
       describe('after a swap', () => {
@@ -289,7 +289,7 @@ describe('ExampleComputeLiquidityValue', () => {
           )
           const [reserve0, reserve1] = await pair.getReserves()
           expect(reserve0).to.eq('20000000000000000000')
-          expect(reserve1).to.eq('500751126690035052579') // half plus the fee
+          expect(reserve1).to.eq('500500500500500500501') // half plus the fee
         })
 
         it('is roughly 1/25th liquidity', async () => {
@@ -302,7 +302,7 @@ describe('ExampleComputeLiquidityValue', () => {
           )
 
           expect(token0Amount).to.eq('1000000000000000000')
-          expect(token1Amount).to.eq('25037556334501752628')
+          expect(token1Amount).to.eq('25025025025025025025')
         })
 
         it('shares after arbing back to 1:100', async () => {
@@ -314,8 +314,8 @@ describe('ExampleComputeLiquidityValue', () => {
             expandTo18Decimals(5)
           )
 
-          expect(token0Amount).to.eq('501127678536722155')
-          expect(token1Amount).to.eq('50037429168613534246')
+          expect(token0Amount).to.eq('500751629703022485')
+          expect(token1Amount).to.eq('50024924573413445487')
         })
       })
     })
@@ -342,8 +342,8 @@ describe('ExampleComputeLiquidityValue', () => {
             105,
             expandTo18Decimals(5)
           )
-          expect(token0Amount).to.eq('488680839243189328') // slightly less than 5% of 10, or 0.5
-          expect(token1Amount).to.eq('51161037620273529068') // slightly more than 5% of 100, or 5
+          expect(token0Amount).to.eq('488670670415603748') // slightly less than 5% of 10, or 0.5
+          expect(token1Amount).to.eq('51161134400349390546') // slightly more than 5% of 100, or 5
         })
 
         it('produces the correct value after arbing to 1:95', async () => {
@@ -354,8 +354,8 @@ describe('ExampleComputeLiquidityValue', () => {
             95,
             expandTo18Decimals(5)
           )
-          expect(token0Amount).to.eq('512252817918759166') // slightly more than 5% of 10, or 0.5
-          expect(token1Amount).to.eq('48806945633721895174') // slightly less than 5% of 100, or 5
+          expect(token0Amount).to.eq('512253839272800262') // slightly more than 5% of 10, or 0.5
+          expect(token1Amount).to.eq('48805875167709209112') // slightly less than 5% of 100, or 5
         })
 
         it('produces correct value at the current price', async () => {
@@ -380,7 +380,7 @@ describe('ExampleComputeLiquidityValue', () => {
             100,
             expandTo18Decimals(5)
           )
-        ).to.eq('16961')
+        ).to.eq('16938')
       })
 
       it('gas higher price', async () => {
@@ -392,7 +392,7 @@ describe('ExampleComputeLiquidityValue', () => {
             105,
             expandTo18Decimals(5)
           )
-        ).to.eq('18498')
+        ).to.eq('18475')
       })
 
       it('gas lower price', async () => {
@@ -404,7 +404,7 @@ describe('ExampleComputeLiquidityValue', () => {
             95,
             expandTo18Decimals(5)
           )
-        ).to.eq('18429')
+        ).to.eq('18406')
       })
 
       describe('after a swap', () => {
@@ -420,7 +420,7 @@ describe('ExampleComputeLiquidityValue', () => {
           )
           const [reserve0, reserve1] = await pair.getReserves()
           expect(reserve0).to.eq('40000000000000000000')
-          expect(reserve1).to.eq('1001502253380070105158') // half plus the fee
+          expect(reserve1).to.eq('1001001001001001001002') // half plus the fee
         })
 
         it('is roughly 1:25', async () => {
@@ -432,8 +432,8 @@ describe('ExampleComputeLiquidityValue', () => {
             expandTo18Decimals(5)
           )
 
-          expect(token0Amount).to.eq('999874953089810756')
-          expect(token1Amount).to.eq('25034425465443434060')
+          expect(token0Amount).to.eq('999916645822910151')
+          expect(token1Amount).to.eq('25022939084657411203')
         })
 
         it('shares after arbing back to 1:100', async () => {
@@ -445,8 +445,8 @@ describe('ExampleComputeLiquidityValue', () => {
             expandTo18Decimals(5)
           )
 
-          expect(token0Amount).to.eq('501002443792372662')
-          expect(token1Amount).to.eq('50024924521757597314')
+          expect(token0Amount).to.eq('500668192056993790')
+          expect(token1Amount).to.eq('50016589179773999794')
         })
       })
     })
