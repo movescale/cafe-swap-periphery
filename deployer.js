@@ -57,8 +57,8 @@ var URL = "";
                           })
 
   console.log(`\WBNB contract deployed at ${wETH.options.address}`);
-  console.log(`Please store this wrapper OETH address for future use ^^^`);
-  data_object.contract_address.woeth = wETH.options.address;
+  console.log(`Please store this wrapper wETH address for future use ^^^`);
+  data_object.contract_address.weth = wETH.options.address;
 
   let cafeRouter02;
   cafeRouter02 = await new web3.eth.Contract(CafeRouter02.abi)
@@ -66,9 +66,11 @@ var URL = "";
                             data: "0x" + CafeRouter02.evm.bytecode.object, 
                             arguments: [
                               data_object.contract_address.cafe_factory,
-                              wETH.options.address]})
+                              data_object.contract_address.weth]})
                           .send({
-                            from: accounts[0]
+                            from: accounts[0],
+                            gas: 5000000,
+                            gasPrice: 20000000000,
                           })
   console.log(`\nCafeRouter02 contract deployed at ${cafeRouter02.options.address}`);
   console.log(`Please store this router address for future use ^^^`);

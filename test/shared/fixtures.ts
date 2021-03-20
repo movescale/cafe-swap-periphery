@@ -11,7 +11,6 @@ import CafeV1Exchange from '../../buildV1/CafeV1Exchange.json'
 import CafeV1Factory from '../../buildV1/CafeV1Factory.json'
 
 import CafeRouter01 from '../../build/CafeRouter01.json'
-import CafeMigrator from '../../build/CafeMigrator.json'
 import CafeRouter02 from '../../build/CafeRouter02.json'
 import CafeFactory from '../../buildFactory/CafeFactory.json'
 import ICafePair from '../../buildFactory/ICafePair.json'
@@ -32,7 +31,6 @@ interface V2Fixture {
   router02: Contract
   routerEventEmitter: Contract
   router: Contract
-  migrator: Contract
   WETHExchangeV1: Contract
   pair: Contract
   WETHPair: Contract
@@ -58,9 +56,6 @@ export async function v2Fixture(provider: Web3Provider, [wallet]: Wallet[]): Pro
 
   // event emitter for testing
   const routerEventEmitter = await deployContract(wallet, RouterEventEmitter, [])
-
-  // deploy migrator
-  const migrator = await deployContract(wallet, CafeMigrator, [factoryV1.address, router01.address], overrides)
 
   // initialize V1
   await factoryV1.createExchange(WETHPartner.address, overrides)
@@ -93,7 +88,6 @@ export async function v2Fixture(provider: Web3Provider, [wallet]: Wallet[]): Pro
     router02,
     router: router02, // the default router, 01 had a minor bug
     routerEventEmitter,
-    migrator,
     WETHExchangeV1,
     pair,
     WETHPair

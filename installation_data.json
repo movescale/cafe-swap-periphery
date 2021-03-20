@@ -1,16 +1,16 @@
 {
   "private_key": {
-    "alice": "bb7ef1e1f75afebecfcc8067a736bd0a469634052e54dc6aebc0f156d6828bd1"
+    "alice": ""
   },
   "public_key": {
-    "alice": "0x7c4330a9bcaa5c0AAe805f2220E7bd8faC85eAAF"
+    "alice": ""
   },
   "contract_address": {
-    "cafe_factory": "",
-    "weth": "",
-    "cafe_router_02": ""
+    "cafe_factory": "0xC682Ab6969158a027341ed308c87D27d66981faf",
+    "weth": "0xD740A6250969a393B096594Ecf05358303e27826",
+    "cafe_router_02": "0x5734Df94e5EF993d12D0f042757ccfC64f6BE467"
   },
   "provider": {
-    "rpc_endpoint": "https://http-testnet.hecochain.com"
+    "rpc_endpoint": "https://data-seed-prebsc-1-s1.binance.org:8545"
   }
 }
